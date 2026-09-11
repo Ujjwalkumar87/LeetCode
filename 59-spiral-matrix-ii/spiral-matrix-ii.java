@@ -10,22 +10,22 @@ class Solution {
             for(int j = fc; j <= lc; j++)
                 arr[fr][j] = num++;
                 fr++; 
-                if(fr > lr || fc > lc) break;
+                
             
             for(int i = fr; i <= lr; i++)
                 arr[i][lc] = num++;
                 lc--;
-                if(fr > lr || fc > lc) break;
+                
             
             for(int j = lc; j >= fc; j--)
                 arr[lr][j] = num++;
                 lr--;
-                if(fr > lr || fc > lc) break;
+                
             
             for(int i = lr; i >= fr; i--)
                 arr[i][fc] = num++;
                 fc++;
-                if(fr > lr || fc > lc) break;
+                
             
         }
         return arr;
