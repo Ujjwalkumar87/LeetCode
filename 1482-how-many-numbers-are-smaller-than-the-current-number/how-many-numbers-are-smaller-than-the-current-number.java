@@ -6,7 +6,7 @@ class Solution {
             for(int j = 0; j < nums.length; j++){
                 if(nums[i] > nums[j]) count++;
             }
-            arr[i] += count;
+            arr[i] = count;
             count = 0;
         }
         return arr;
