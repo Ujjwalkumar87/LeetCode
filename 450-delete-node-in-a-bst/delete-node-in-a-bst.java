@@ -1,0 +1,24 @@
+class Solution {
+    public TreeNode deleteNode(TreeNode root, int key) {
+        if(root == null) return null;
+        if(root.val > key) root.left = deleteNode(root.left , key);
+        else if(root.val < key) root.right = deleteNode(root.right , key);
+        else{
+            // case 1 , if root.val == key , leaf node
+            if(root.left == null && root.right == null) return null;
+
+            // case 2 , (1 child node)
+            if(root.left == null) return root.right;
+            if(root.right == null) return root.left;
+
+            // case 3 , (2 child node)
+            TreeNode pred = root.left;
+            while(pred.right != null) pred = pred.right;
+            root.left = deleteNode(root.left , pred.val);
+            pred.left = root.left;
+            pred.right = root.right;
+            return pred;
+        }
+        return root;
+    }
+}
